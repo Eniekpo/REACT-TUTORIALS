@@ -14,9 +14,8 @@ function App() {
       { name: 'Eniekpo', role: 'Tech Officer', img: Image },
       { name: 'Ebiowei', role: 'Designer', img: Image },
       { name: 'Akpos', role: 'Staff', img: Image },
-      { name: 'Eniekpo', role: 'Engineer', img: Image },
-      { name: 'Ebiowei', role: 'Developer', img: Image },
-      { name: 'Ebiowei', role: 'Developer', img: Image },
+      { name: 'Ebiowei', role: 'Designer', img: Image },
+      { name: 'Akpos', role: 'Staff', img: Image },
     ]
   )
   const showEmployees = true
@@ -25,7 +24,6 @@ function App() {
       {showEmployees ? (
         <>
           <input type="text" onChange={(e) => {
-            console.log('e.target.value')
             setRole(e.target.value)
           }} />
           <div className='flex flex-wrap justify-center'>

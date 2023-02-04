@@ -24,3 +24,4 @@
   [type="radio"] {
     @apply border-gray-300 rounded text-indigo-600 focus:ring-indigo-500;
   }
+}
