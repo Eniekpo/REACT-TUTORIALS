@@ -4,6 +4,7 @@ import Employee from './components/Employee';
 import { v4 as uuidv4 } from 'uuid'
 import Image from './assets/avarta.png'
 import AddEmployee from './components/AddEmployee';
+import EditEmployee from './components/EditEmployees';
 
 function App() {
   const [role, setRole] = useState('dev')
@@ -48,6 +49,13 @@ function App() {
           }} />
           <div className='flex flex-wrap justify-center'>
             {employees.map((employee) => {
+              // Pass Component as Props 
+              const editEmployee = <EditEmployee
+                id={employee.id}
+                name={employee.name}
+                role={employee.role}
+                updateEmployee={updateEmployee}
+              />;
               return (
 
                 < Employee
@@ -56,7 +64,7 @@ function App() {
                   name={employee.name}
                   role={employee.role}
                   img={employee.img}
-                  updateEmployee={updateEmployee}
+                  editEmployee={editEmployee}
                 />
               )
             })}
