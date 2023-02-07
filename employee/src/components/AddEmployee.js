@@ -62,9 +62,9 @@ function AddEmployee(props) {
                                    Image
                                 </label>
                                 <input className="bg-gray-100 appearance-none border-2 border-gray-200 rounded w-full py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
-                                    id="img" type="text" value={img} onChange={(e) => {
+                                    id="img" type="url" value={img} onChange={(e) => {
                                         setImg(e.target.value)
-                                    }} placeholder=' img url'/>
+                                    }} placeholder=' img'/>
                                 </div>
 
                         </div>
