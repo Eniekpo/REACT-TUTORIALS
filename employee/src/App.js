@@ -1,7 +1,7 @@
 import './index.css'
 import React, { useState } from 'react'
 import Employee from './components/Employee';
-// import { v4 as uuidv4 } from 'uuid'
+import { v4 as uuidv4 } from 'uuid'
 import Image from './assets/avarta.png'
 import AddEmployee from './components/AddEmployee';
 
@@ -27,6 +27,17 @@ function App() {
     });
     setEmployees = (updatedEmployees);
   }
+
+  function newEmployee(name, role, img) {
+   const newEmployee = {
+      id: uuidv4(),
+      name: name,
+      role: role,
+      img: img,
+    }
+    setEmployees([...employees, newEmployee]);
+  }
+
   const showEmployees = true
   return (
     <div className="App">
@@ -50,7 +61,7 @@ function App() {
               )
             })}
           </div>
-          <AddEmployee />
+          <AddEmployee newEmployee={newEmployee} />
         </>
       ) : (
         <p>You Cannot see the Employees</p>
