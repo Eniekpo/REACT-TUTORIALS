@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 import Image from './assets/avarta.png'
 import AddEmployee from './components/AddEmployee';
 import EditEmployee from './components/EditEmployees';
+import Header from './components/Header';
 
 function App() {
   const [role, setRole] = useState('dev')
@@ -42,6 +43,7 @@ function App() {
   const showEmployees = true
   return (
     <div className="App">
+      <Header />
       {showEmployees ? (
         <>
           <input type="text" onChange={(e) => {
