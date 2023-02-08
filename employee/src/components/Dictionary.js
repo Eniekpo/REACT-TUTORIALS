@@ -15,21 +15,21 @@ const Dictionary = () => {
     // No dependency array --> Update for any state changes
     // Empty dependency array --> execute once
     // Passing in data --> Only execute when those state variables are changed
-  return (
-      <>
-      <div className='py-5 px-5'>
-          <input type="text" onChange={(e) => {
-              setWord(e.target.value)
-          }} />
-          <h4 className='py-2'>Let's Get The Definition For {word}</h4>
-          
-          <input type="text" onChange={(e) => {
-              setWord2(e.target.value)
-          }} />
-          <h4 className='py-2'>Let's Get The Definition For {word2}</h4>
-      </div>
-      </>
-  )
+    return (
+        <>
+            <div className='py-5 px-5'>
+                <input type="text" onChange={(e) => {
+                    setWord(e.target.value)
+                }} />
+                <h4 className='py-2'>Let's Get The Definition For {word}</h4>
+
+                <input type="text" onChange={(e) => {
+                    setWord2(e.target.value)
+                }} />
+                <h4 className='py-2'>Let's Get The Definition For {word2}</h4>
+            </div>
+        </>
+    )
 }
 
 export default Dictionary
