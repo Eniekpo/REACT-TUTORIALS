@@ -1,19 +1,14 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Disclosure} from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 const navigation = [
     { name: 'EMPLOYEES', href: '/' },
     { name: 'CUSTOMERS', href: '/customers' },
-    { name: 'Projects', href: '/home' },
+    { name: 'DICTIONARY', href: '/dictionary' },
     { name: 'Calendar', href: '/about' },
 ]
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
 
 export default function Header(props) {
     return (
@@ -24,6 +19,7 @@ export default function Header(props) {
                         <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                             <div className="relative flex h-14 items-center justify-between">
                                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+
                                     {/* Mobile menu button*/}
                                     <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                                         <span className="sr-only">Open main menu</span>
@@ -88,7 +84,9 @@ export default function Header(props) {
                     {props.children}
                 </div>
             </div>
-            <footer className='bg-yellow-900 text-white text-center px-2 py-2'>Example</footer>
+            <footer className='bg-yellow-900 text-white text-center justify-center  px-2 py-2'>
+                <p>Copyright 2023 &copy; <Link to='http://www.yoletek.com' className='no-underline'>Yoletek</Link></p>
+            </footer>
         </>
     )
 }
