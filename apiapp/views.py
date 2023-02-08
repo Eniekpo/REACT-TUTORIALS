@@ -9,7 +9,7 @@ from rest_framework.response import Response
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'apiapp/index.html')
 
 
 class DetailsTable(APIView):
