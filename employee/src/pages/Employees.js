@@ -41,10 +41,10 @@ function Employees() {
 
     const showEmployees = true
     return (
-        <div className="App bg-stone-200 min-h-screen">
+        <div className="">
             {showEmployees ? (
                 <>
-                    <div className='flex flex-wrap justify-center my-3 mx-1'>
+                    <div className='flex flex-wrap justify-center'>
                         {employees.map((employee) => {
                             // Pass Component as Props 
                             const editEmployee = <EditEmployee
