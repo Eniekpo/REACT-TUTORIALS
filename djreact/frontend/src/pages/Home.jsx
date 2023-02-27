@@ -1,11 +1,11 @@
 import React from 'react'
-import Customers from '../components/Customers'
+import Customers from './Customers'
 
 const Home = () => {
   return (
-    <>
-      <Customers />
-    </>
+      <div>
+          <Customers/>
+    </div>
   )
 }
 
