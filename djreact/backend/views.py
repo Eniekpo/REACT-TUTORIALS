@@ -8,9 +8,16 @@ from rest_framework import status
 
 @api_view(['GET', 'POST'])
 def customers(request):
-    data = Customer.objects.all()
-    serializer = CustomerSerializer(data, many=True)
-    return Response({'customers': serializer.data})
+    if request.method == 'GET':
+        data = Customer.objects.all()
+        serializer = CustomerSerializer(data, many=True)
+        return Response({'customers': serializer.data})
+    elif request.method == 'POST':
+        serializer = CustomerSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({'customer': serializer.data}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET', 'POST', 'DELETE'])
