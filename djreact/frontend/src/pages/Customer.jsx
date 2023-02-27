@@ -6,7 +6,7 @@ export default function Customer() {
     const [customer, setCustomer] = useState();
     useEffect(() => {
         console.log('useEffect');
-        const url = 'http://localhost:8000/api/customers/'+id;
+        const url = 'http://127.0.0.1:8000/api/customers/'+id;
         fetch(url)
             .then((response) => {
                 return response.json();
