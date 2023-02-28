@@ -11,17 +11,25 @@ export default function Customers() {
                 setCustomers(data.customers);
             });
     }, []);
+
+    
     return (
         <>
             <div className='container mt-5'>
                 <h1>Here are our customers: </h1>
-                {customers ? customers.map((customer) => {
+                <ul>
+                {customers
+                    ? customers.map((customer) => {
                     return (
-                        <p>
-                            <Link className='btn btn-light btn-outline-primary' to={'/customer/' + customer.id}>{customer.name}</Link>
-                        </p>
+                            <li key={customer.id}>
+                                <Link className='btn btn-light btn-outline-primary' to={'/customer/' + customer.id}>
+                                    {customer.name}
+                                </Link>
+                            </li>
                     )
-                }) : null}
+                    }) : null}
+                  
+                </ul>
             </div>
         </>
     );

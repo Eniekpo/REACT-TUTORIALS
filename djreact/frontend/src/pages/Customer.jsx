@@ -20,6 +20,7 @@ export default function Customer() {
                 setCustomer(data.customer);
             });
     }, []);
+
     return (
         <>
             <div className="container mt-5">
@@ -30,6 +31,25 @@ export default function Customer() {
                         <p>{customer.industry}</p>
                     </div>
                 ) : null}
+                <button className='btn btn-secondary mb-2'
+                    onClick={(e) => {
+                    const url = baseurl + 'api/customers' + id;
+                    fetch(url, {method: 'DELETE', headers: {
+                        'Content-Type': 'application/json'
+                    } })
+                        .then((respone) => {
+                        if (!respone.ok) {
+                            throw new Error('Something went wrong')
+                        }
+                        navigate('/customers');
+                    })
+                        .catch((e) => {
+                        console.log(e)
+                    })
+                }} >
+                    Delete
+                </button>
+                <br />
                 <Link className='btn btn-primary' to="/customers">Go Back</Link>
             </div>
         </>
