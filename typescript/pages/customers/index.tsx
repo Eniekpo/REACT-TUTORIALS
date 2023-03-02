@@ -39,7 +39,7 @@ const Customers: NextPage = ({ customers }: InferGetStaticPropsType<typeof getSt
                 );
             })}
         </>
-    )
-};
-
+    );
+    
+}
 export default Customers;
