@@ -1,27 +1,28 @@
+import axios from "axios";
 import { NextPage, GetStaticProps, InferGetStaticPropsType } from "next";
+import { MongoClient, ObjectId } from 'mongodb'
 type Customer = {
-    id: number,
+    _id: ObjectId,
     name: string,
     industry: string
 }
+type GetCustomerRespone = {
+    customers: Customer[]
+}
 export const getStaticProps: GetStaticProps = async (context) => {
+    const mongoClient = new MongoClient('mongodb+srv://eniekpo:Ebimene123@cluster0.jpcqg0u.mongodb.net/Customers?retryWrites=true&w=majority')
+
+    // const result = await axios.get<GetCustomerRespone>('http://127.0.0.1:8000/api/customers')
+    
+    const data = await mongoClient.db().collection('Customers').find({}).toArray();
+    console.log('!!!', data);
+
     return {
         props: {
-            customers: [
-                {
-                    id: 1,
-                    name: "John Smith",
-                    industry: "Restaurant"
-                },
-                {
-                    id: 2,
-                    name: "Sal Brown",
-                    industry: "Tech industry"
-                },
-            ] as Customer[],
-        }
-    }
-}
+            customers: JSON.parse(JSON.stringify(data)),
+        },
+    };
+};
 
 const Customers: NextPage = ({ customers }: InferGetStaticPropsType<typeof getStaticProps>) => {
     console.log(customers);
@@ -31,8 +32,8 @@ const Customers: NextPage = ({ customers }: InferGetStaticPropsType<typeof getSt
             <h1>Customers</h1>
             {customers.map((customer: Customer) => {
                 return (
-                    <div>
-                        <p>{customer.id}</p>
+                    <div key={customer._id.toString()}>
+                        <p>{customer._id.toString()}</p>
                         <p>{customer.name}</p>
                         <p>{customer.industry}</p>
                     </div>
@@ -40,6 +41,6 @@ const Customers: NextPage = ({ customers }: InferGetStaticPropsType<typeof getSt
             })}
         </>
     );
-    
+
 }
 export default Customers;
