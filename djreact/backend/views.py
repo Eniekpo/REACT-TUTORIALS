@@ -8,7 +8,7 @@ from rest_framework import status
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'backend/index.html')
 
 
 @api_view(['GET', 'POST'])
