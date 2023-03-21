@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <title>Backend</title>
+  </head>
+  <body>
+     <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a href= "{% url 'index' %}" class="navbar-brand" style="font-size: 2rem; color: #fff">Website Logo</a>
+          <ul class="navbar-nav">
+            <li class="nav-item"><a href="{% url 'index' %}" class="nav-link" style="font-size: 1.2rem; color: #fff">Cutomers</a></li>
+          </ul>
+          <div class="navbars-text">
+            <a href="{% url 'index' %}" style="text-decoration: none; color: #fff; font-size: 1.2rem;">Get Started</a>
+          </div>
+        </div>
+      </nav> <br/> <br/>
+     
+    <div class="container m-5 shadow p-3">
+     {% block content %}
+     
+     
+     {% endblock  %}
+    </div>
+
+    <script
+      type="text/javascript"
+      src="{% static 'js/bootstrap.bundle.min.js' %}"
+    ></script>
+  </body>
+</html>
