@@ -1,6 +1,15 @@
+import Employee from "./components/Employee";
+
 function App() {
   return (
-  <div>Hello</div>
+    <>
+      <Employee />
+      <Employee />
+      <Employee />
+      <Employee />
+      <Employee />
+      <Employee />
+    </>
   )
 
 }
