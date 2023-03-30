@@ -3,12 +3,9 @@ import Employee from "./components/Employee";
 function App() {
   return (
     <>
-      <Employee />
-      <Employee />
-      <Employee />
-      <Employee />
-      <Employee />
-      <Employee />
+      <div className="container mt-5">
+        <Employee />
+      </div>
     </>
   )
 
